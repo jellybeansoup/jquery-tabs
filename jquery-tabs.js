@@ -48,7 +48,7 @@
 					widget.dom.tabs = jQuery('<ul></ul>').addClass('ui-tabs');
 					widget.dom.panes = panes;
 					// Insert a marker
-					var marker = jQuery('<a></a>').insertBefore(panes.first())
+					var marker = jQuery('<a></a>').insertBefore(panes.first());
 					// Remove the panes
 					widget.dom.panes.remove();
 					// Go through the available panes and move them into the tab container
@@ -61,17 +61,15 @@
 						var title = pane.attr('title') || pane.find('h1,h2,h3,h4,h5').first().addClass('ui-tab-title').text();
 						// Add the tab
 						tabs_li[i] = '<li data-tab="'+id+'"><a href="javascript:null">'+title+'</a></li>';
-					};
-					widget.dom.tabs.html( tabs_li.join('') )
+					}
+					widget.dom.tabs.html( tabs_li.join('') );
 					// React to state change
 					widget.dom.tabs.on('click','li a',widget,function(e){
 						e.data._click_tab( $(this).parent() );
 					});
 					// Show the first tab
 					if( panes.filter('.selected').length ) {
-						var pane = widget.dom.panes.filter('.selected').first();
-						var tab = widget._tabForPane( pane );
-						widget.dom.tabs.find('a').click();
+						widget._tabForPane( widget.dom.panes.filter('.selected').first() ).find('a').click();
 					}
 					else {
 						widget.dom.tabs.find('li a').first().click();
@@ -145,7 +143,7 @@
 					if( typeof group !== 'undefined' && typeof groups[group] !== 'object' ) {
 						groups[group] = jQuery('['+group_by+'="'+group+'"]');
 					}
-				};
+				}
 				// Remove the grouping attribute from the panes
 				panes.removeAttr(group_by);
 				// Now we deal with each group individually
