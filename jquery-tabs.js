@@ -6,13 +6,13 @@
 *
 * @version 1.0
 * @author Daniel Farrelly <daniel@jellystyle.com>
-* @link <https://github.com/jellybeansoup/jquery-textfit>
+* @link <https://github.com/jellybeansoup/jquery-tabs>
 */
 
 (function( $ ){
 
 	/**
-	* The textfit function (an alias for $.textfit._init).
+	* The tabs function.
 	* Works with a jQuery object array.
 	* @var function
 	*/
@@ -81,7 +81,7 @@
 				},
 
 				/**
-				* Initialise a popover widget
+				* Display the pane for the given tab
 				* @param object
 				* @param items
 				* @return A rotator widget.
