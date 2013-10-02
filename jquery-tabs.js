@@ -35,9 +35,9 @@
 				},
 
 				/**
-				* Initialise a popover widget
-				* @param object
-				* @param items
+				* Initialise a tabs group
+				* @param group_name The identifier for grouping panes.
+				* @param panes Panes that match the group name.
 				* @return A rotator widget.
 				*/
 
@@ -82,8 +82,7 @@
 
 				/**
 				* Display the pane for the given tab
-				* @param object
-				* @param items
+				* @param tab The tab to display the pane for
 				* @return A rotator widget.
 				*/
 
@@ -101,7 +100,7 @@
 
 				/**
 				* Get the tab for a given pane.
-				* @param pane
+				* @param pane The pane to find the tab for
 				* @return The tab matching the given pane
 				*/
 
@@ -112,7 +111,7 @@
 
 				/**
 				* Get the pane for a given tab.
-				* @param pane
+				* @param tab The tab to find the pane for
 				* @return The pane matching the given tab
 				*/
 
