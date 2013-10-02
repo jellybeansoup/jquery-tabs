@@ -24,24 +24,64 @@
 		.ui-tab-container .ui-tabs {
 			display: table;
 			width: 100%;
+			margin-bottom: 15px;
 		}
 		.ui-tab-container .ui-tabs li {
+			position: relative;
 			float: left;
 			padding: 0 5px;
 		}
-		.ui-tab-container .ui-tabs li a {
+		.ui-tab-container .ui-tabs li .ui-tab-select {
 			display: block;
-			padding: 0 15px;
+			padding: 0 35px 0 15px;
 			line-height: 30px;
 			text-decoration: none;
 			color: #666;
 			border: 1px solid #ddd;
 			border-radius: 5px;
 		}
-		.ui-tab-container .ui-tabs li.selected a {
+		.ui-tab-container .ui-tabs li.selected .ui-tab-select {
 			color: #fff;
 			background-color: #999;
 			border-color: #999;
+		}
+		.ui-tab-container .ui-tabs li .ui-tab-remove {
+			position: absolute;
+			top: 50%;
+			right: 15px;
+			display: block;
+			height: 16px;
+			width: 16px;
+			margin: -8px 0;
+			text-indent: -1000000px;
+			background-color: #eeeeee;
+			background-color: rgba( 220, 220, 220, 0.8 );
+			border-radius: 8px;
+		}
+		.ui-tab-container .ui-tabs li .ui-tab-remove:after {
+			content: '×';
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			height: 16px;
+			width: 16px;
+			font-size: 16px;
+			line-height: 12px;
+			text-align: center;
+			text-indent: 0;
+			overflow: visible;
+			color: #999;
+		}
+		.ui-tab-container .ui-tabs li .ui-tab-remove:active,
+		.ui-tab-container .ui-tabs li .ui-tab-remove:focus,
+		.ui-tab-container .ui-tabs li .ui-tab-remove:hover {
+			background-color: #ff8c8c;
+		}
+		.ui-tab-container .ui-tabs li .ui-tab-remove:active:after,
+		.ui-tab-container .ui-tabs li .ui-tab-remove:focus:after,
+		.ui-tab-container .ui-tabs li .ui-tab-remove:hover:after {
+			color: #fff;
 		}
 		.ui-tab-container .ui-tab-content {
 			display: none;
@@ -52,6 +92,9 @@
 		}
 		.ui-tab-container .ui-tab-content .ui-tab-title {
 			display: none;
+		}
+		.ui-tab-container .ui-tab-content * {
+			margin: 0 0 10px;
 		}
 	</style>
 </head>
@@ -67,7 +110,7 @@
 		<p>Morbi dictum eros in quam commodo posuere. Vivamus sollicitudin metus sem, quis tincidunt erat tincidunt sed. Fusce accumsan elementum purus, ac facilisis enim interdum sit amet. Sed consectetur leo at turpis egestas, ut ornare dui posuere. Donec vestibulum ultrices est sit amet porta. Morbi suscipit risus erat, at dictum magna cursus nec. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
 	</div>
 
-	<div data-tab-group="example">
+	<div data-tab-group="example" class="selected">
 		<h1>Tab 2</h1>
 		<p>Nunc id tellus risus. Nunc egestas id justo nec ultrices. Etiam congue a mauris quis mattis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis risus non leo suscipit, nec vulputate ipsum tincidunt. Vestibulum luctus hendrerit quam, et faucibus turpis tempor nec. Sed ornare mi non massa gravida, facilisis accumsan risus tincidunt. Quisque nec ipsum est. Suspendisse ullamcorper condimentum dignissim. Phasellus vel sem risus. Sed iaculis gravida dolor, quis porttitor felis iaculis a. Duis porta laoreet velit sit amet vestibulum. Curabitur ut condimentum purus.</p>
 		<p>Etiam est sem, pulvinar et tellus eget, fermentum pretium arcu. Nullam ipsum elit, blandit nec lobortis vitae, sollicitudin ac ante. Nunc tellus velit, vulputate a est ut, ultrices lacinia arcu. Phasellus non tempus velit. Integer dapibus enim elit, sed cursus arcu consequat vel. Sed eleifend velit at vestibulum pulvinar. Sed vestibulum magna sem, id consectetur lacus congue et. Sed pharetra consectetur purus. Praesent felis ligula, commodo id lectus a, dignissim commodo lacus.</p>

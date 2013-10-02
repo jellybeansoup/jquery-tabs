@@ -22,13 +22,24 @@ To get up and running quickly, you can set Tabs to automatically match all eleme
 
 ##Using Tabs
 
-To run Tabs, simply run the function, providing the name of an attribute as a parameter:
+To run Tabs, you can simply run the `$.tabs` function, providing the name of an attribute as a parameter:
 
 ```javascript
 $.tabs( 'data-tab-group' );
 ```
 
-Elements with the same value will be grouped together as part of a tab group. See the `example.html` file for an example of how it works.
+Elements with the same value will be grouped together as part of a tab group. See the `example.html` file for an example of how this works.
+
+You can also create a tab group manually. To do this, call the tabs function on a jQuery object, and add and remove tabs as required.
+
+```javascript
+var tabs = $('<div/>').tabs().appendTo('body');
+var tab1 = tabs.tabs( 'add', '<p>This is the content</p>', 'Tab 1' );
+var tab2 = tabs.tabs( 'add', '<p>This is some additional content</p>', 'Tab 2' );
+tabs.tabs( 'remove', tab1 );
+```
+
+Tabs can be removed from a group by passing either the tab, the tab's content pane, or the tab identifier to the remove method.
 
 ##Released under the BSD License
 
