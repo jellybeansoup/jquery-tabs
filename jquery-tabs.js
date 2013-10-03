@@ -79,18 +79,14 @@
 		*/
 
 		add: function( content, title ) {
-			// Detect the title if we're not given one
-			if( typeof title !== 'string' || title.length <= 0 ) {
-				content = $('<div></div>').html(content);
-				title = content.find('h1,h2,h3,h4,h5').first().addClass('ui-tab-title').text();
-				content = content.html();
-			}
 			// Set up the DOM
 			var id = 'ui-tabs-'+( ( new Date().getTime() ) + Math.round( Math.random() * 1000000 ) );
 			var tab = $('<li></li>').attr('data-tab',id).appendTo( this._dom.tabContainer );
-			var link = $('<a></a>').addClass('ui-tab-select').attr('href','#').html(title).appendTo( tab );
+			var link = $('<a></a>').addClass('ui-tab-select').attr('href','#').appendTo( tab );
 			var remove = $('<a></a>').addClass('ui-tab-remove').attr('href','#').html('Remove').appendTo( tab );
 			var pane = $('<div/>').addClass('ui-tab-content').attr('data-pane',id).html(content).appendTo( this._dom.container );
+			// Set the tab's text
+			link.html( title || pane.find('h1,h2,h3,h4,h5').first().addClass('ui-tab-title').text() )
 			// If this is the first tab, we're going to select it
 			if( this._dom.tabs === null || this._dom.tabs.length <= 0 ) {
 				tab.add(pane).addClass('selected');
@@ -240,8 +236,7 @@
 				var l = panes.length;
 				for( var x=0; x<l; x++ ) {
 					var pane = $(panes[x]);
-					var title = pane.find('h1,h2,h3,h4,h5').first().addClass('ui-tab-title').text();
-					var tab = group.tabs( 'add', pane.html(), title );
+					var tab = group.tabs( 'add', pane.contents() );
 					// Display this tab
 					if( pane.hasClass('selected') ) {
 						group.tabs( 'select', tab );
