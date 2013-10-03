@@ -22,6 +22,7 @@
 
 	var JSMTabs = function( obj, options ) {
 		// Set up the DOM
+		this._dom = { tabs: null, panes: null };
 		this._dom.container = obj.addClass('ui-tab-container');
 		this._dom.tabContainer = jQuery('<ul></ul>').addClass('ui-tabs').appendTo( this._dom.container );
 		// Display a tab
@@ -35,18 +36,6 @@
 	};
 
 	JSMTabs.prototype = {
-
-		/**
-		* The DOM structure for this widget
-		* @return
-		*/
-
-		_dom: {
-			container: null,
-			tabContainer: null,
-			tabs: null,
-			panes: null
-		},
 
 		/**
 		* Find the tab for the given input
