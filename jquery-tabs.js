@@ -19,7 +19,7 @@
 
 	$.fn.tabs = function() {
 		// Constructor for the widget
-		var JSMWidget = function( obj, options ) {
+		var JSMTabs = function( obj, options ) {
 			// Set up the DOM
 			this._dom.container = obj.addClass('ui-tab-container');
 			this._dom.tabContainer = jQuery('<ul></ul>').addClass('ui-tabs').appendTo( this._dom.container );
@@ -33,7 +33,7 @@
 			});
 		};
 		// Define the widget prototype
-		JSMWidget.prototype = {
+		JSMTabs.prototype = {
 
 			/**
 			* The DOM structure for this widget
@@ -177,16 +177,16 @@
 		for( var i=0; i<l; i++ ) {
 			var obj = $(this[i]);
 			// Use the existing widget
-			var widget = obj.data('JSMWidget');
+			var widget = obj.data('JSMTabs');
 			if( typeof widget === 'object' && typeof arguments[0] === 'string' && arguments[0].substr(0,1) !== '_' ) {
 				var method = arguments[0];
 				var args = Array.prototype.slice.call( arguments, 1 );
-				return JSMWidget.prototype[method].apply( widget, args );
+				return JSMTabs.prototype[method].apply( widget, args );
 			}
 			// Set up the widget
-			widget = new JSMWidget( obj, arguments[0] );
+			widget = new JSMTabs( obj, arguments[0] );
 			// Keep the widget safe
-			obj.data('JSMWidget',widget);
+			obj.data('JSMTabs',widget);
 		}
 		// Return the container for chaining
 		return this;
