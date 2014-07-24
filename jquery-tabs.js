@@ -16,11 +16,10 @@
 	* A container that can have panes with a linked "tab" added to it. Clicking the tab will cause the pane to be selected.
 	* No CSS is applied directly to elements: to hide and show tabs, rules myst be applied within a stylesheet.
 	* @param obj The jQuery object to use as the tab group container.
-	* @param options An object containing options for the widget.
 	* @returns JSMTabs object.
 	*/
 
-	var JSMTabs = function( obj, options ) {
+	var JSMTabs = function( obj ) {
 		// Set up the DOM
 		this._dom = { tabs: null, panes: null };
 		this._dom.container = obj.addClass('ui-tab-container');
@@ -72,7 +71,7 @@
 			var id = 'ui-tabs-'+( ( new Date().getTime() ) + Math.round( Math.random() * 1000000 ) );
 			var tab = $('<li></li>').attr('data-tab',id).appendTo( this._dom.tabContainer );
 			var link = $('<a></a>').addClass('ui-tab-select').attr('href','#').appendTo( tab );
-			var remove = $('<a></a>').addClass('ui-tab-remove').attr('href','#').html('Remove').appendTo( tab );
+			$('<a></a>').addClass('ui-tab-remove').attr('href','#').html('Remove').appendTo( tab );
 			var pane = $('<div/>').addClass('ui-tab-content').attr('data-pane',id).html(content).appendTo( this._dom.container );
 			// Set the tab's text
 			link.html( title || pane.find('h1,h2,h3,h4,h5').first().addClass('ui-tab-title').text() );
@@ -202,7 +201,6 @@
 				return;
 			}
 			// Find all the group names
-			var groups = {};
 			for( var i=0; i<allPanes.length; i++ ) {
 				var name, panes;
 				// Fetch the group's name
