@@ -74,7 +74,7 @@
 			$('<a></a>').addClass('ui-tab-remove').attr('href','#').html('Remove').appendTo( tab );
 			var pane = $('<div/>').addClass('ui-tab-content').attr('data-pane',id).html(content).appendTo( this._dom.container );
 			// Set the tab's text
-			link.html( title || pane.find('h1,h2,h3,h4,h5').first().addClass('ui-tab-title').text() );
+			link.html( title || pane.find('h1,h2,h3,h4,h5').first().addClass('ui-tab-title').html() );
 			// If this is the first tab, we're going to select it
 			if( this._dom.tabs === null || this._dom.tabs.length <= 0 ) {
 				tab.add(pane).addClass('selected');
